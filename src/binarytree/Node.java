@@ -1,4 +1,4 @@
-package com.hornmicro;
+package binarytree;
 
 public class Node<T extends Comparable<?>> {
     public Node<T> left;

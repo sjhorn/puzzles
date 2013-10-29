@@ -1,4 +1,4 @@
-package com.hornmicro;
+package binarytree;
 
 import org.junit.Test;
 import org.junit.Before;
