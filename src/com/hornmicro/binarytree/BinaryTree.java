@@ -63,12 +63,11 @@ public class BinaryTree {
             Snapshot snapshot = stack.pop();
             switch (snapshot.stage) {
                 case 1:
-                    snapshot.stage = 2;
-                    stack.push(snapshot);
-                    
                     list.add(snapshot.node.value);
                     
                     if(snapshot.node.left != null) {
+                    	snapshot.stage = 2;
+                        stack.push(snapshot);
                         stack.push(new Snapshot(1, snapshot.node.left));
                         continue;
                     }
@@ -117,20 +116,20 @@ public class BinaryTree {
             
             List<Integer> list = bt.preOrderTraversal();
             System.out.println(list);
-//            assertArrayEquals(
-//                    new Integer[] { 2, 2, 4, 5, 7, 8, 12 }, 
-//                    list.toArray(new Integer[list.size()])
-//            );
+            assertArrayEquals(
+                    new Integer[] { 7, 2, 2, 5, 4, 12, 8 }, 
+                    list.toArray(new Integer[list.size()])
+            );
         }
         
         @Test
         public void testPreorderTraversal2() {
             List<Integer> list = bt.preOrderTraversal2();
             System.out.println(list);
-//            assertArrayEquals(
-//                    new Integer[] { 2, 2, 4, 5, 7, 8, 12 }, 
-//                    list.toArray(new Integer[list.size()])
-//            );
+            assertArrayEquals(
+                    new Integer[] { 7, 2, 2, 5, 4, 12, 8 }, 
+                    list.toArray(new Integer[list.size()])
+            );
         }
     }
     
