@@ -1,4 +1,4 @@
-package binarytree;
+package com.hornmicro.binarytree;
 
 import java.util.ArrayList;
 import java.util.Collections;
