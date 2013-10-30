@@ -1,6 +1,9 @@
 package com.hornmicro.problem;
 
 public class AreaProblem {
+	
+	// ref http://blog.csdn.net/arbuckle/article/details/710988
+	// http://stackoverflow.com/questions/3806520/finding-maximum-size-sub-matrix-of-all-1s-in-a-matrix-having-1s-and-0s
     static int maxOriginX = 0;
     static int maxOriginY = 0;
     
