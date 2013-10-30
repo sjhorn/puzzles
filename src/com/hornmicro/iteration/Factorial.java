@@ -32,6 +32,9 @@ public class Factorial {
         	this.n = n;
         	this.stage = stage;
         }
+        public Snapshot(int stage, int n) {
+            this(stage, n, 0);
+        }
     }
     
     public int factorial3(int n) {
@@ -64,7 +67,6 @@ public class Factorial {
         return retVal;
     }
 
-    
     public int factorial2(int n) {
     	int retVal = 0;
     	LinkedList<Snapshot> stack = new LinkedList<Snapshot>();
@@ -91,7 +93,32 @@ public class Factorial {
     	}
     	return retVal;
     }
-    
+
+    public int factorial4(int n) {
+        int retVal = 0;
+        LinkedList<Snapshot> stack = new LinkedList<Snapshot>();
+        stack.push(new Snapshot(0, n));
+        while (!stack.isEmpty()) {
+            Snapshot local = stack.pop();
+            switch(local.stage) {
+            case 0:
+                if(local.n > 1) {
+                    local.stage = 1;
+                    stack.push(local);
+                    stack.push(new Snapshot(0, local.n - 1));
+                } else {
+                    retVal = 1;
+                }
+                break;
+            case 1:
+                local.fval = retVal;
+                local.fval *= local.n;
+                retVal = local.fval;
+                break;
+            }
+        }
+        return retVal;
+    }
     
     public static class TestFactorial {
         Factorial f;
@@ -108,7 +135,7 @@ public class Factorial {
         
         @Test
         public void testF2() {
-            assertTrue(f.factorial2(4) == 24);
+            assertTrue(f.factorial4(4) == 24);
         }
     }
     
