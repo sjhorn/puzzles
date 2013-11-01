@@ -1,4 +1,4 @@
-package com.hornmicro.LinkedLists;
+package com.hornmicro.linkedlists;
 
 public class LinkedListItem {
 	public LinkedListItem next;

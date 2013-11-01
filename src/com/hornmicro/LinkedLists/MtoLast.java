@@ -1,4 +1,4 @@
-package com.hornmicro.LinkedLists;
+package com.hornmicro.linkedlists;
 
 import org.junit.Assert;
 import org.junit.Before;
